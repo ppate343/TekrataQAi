@@ -7,6 +7,10 @@
   --card-bg: #1a1c28;
 
 }
+* {
+  transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+
 
 body {
   margin: 0;
@@ -26,6 +30,12 @@ body {
   position: sticky;
   top: 0;
   z-index: 10;
+}
+
+.navbar nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem; /* keeps even spacing between links and button */
 }
 
 .navbar a {
@@ -369,3 +379,65 @@ input, textarea {
   margin-top: 1rem;
   color: #4caf50;
 }
+
+/* Light Theme */
+:root.light-theme {
+  --bg-dark: #ffffff;
+  --bg-secondary: #f6f7fb;
+  --accent: #4f6ef7;
+  --text-light: #111111;
+  --text-muted: #555555;
+  --card-bg: #ffffff;
+}
+
+.light-theme .navbar a {
+  color: var(--text-light);
+}
+
+.light-theme .hero {
+  background: linear-gradient(135deg, #f2f4ff 0%, #ffffff 100%);
+  color: var(--text-light);
+}
+
+.light-theme .section.dark {
+  background-color: var(--bg-secondary);
+}
+
+.light-theme input,
+.light-theme textarea {
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #111;
+}
+
+.light-theme .feature-card {
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 24px; /* similar height to nav links */
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+  background: none;
+  border: none;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  color: var(--accent);
+}
+
+.theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke-width: 2;
+}
+

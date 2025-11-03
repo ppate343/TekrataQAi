@@ -50,3 +50,42 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("themeToggle");
+  const root = document.documentElement;
+  const heroImage = document.getElementById("heroImage");
+
+  // Ensure Lucide icons are rendered first
+  lucide.createIcons();
+
+  // Load saved theme preference
+  if (localStorage.getItem("theme") === "light") {
+    root.classList.add("light-theme");
+    toggleButton.innerHTML = '<i data-lucide="sun"></i>';
+    heroImage.src = "assets/qa-automation-bg.png";
+  } else {
+    toggleButton.innerHTML = '<i data-lucide="moon"></i>';
+    heroImage.src = "assets/qa-automation-bg-blue.png";
+  }
+  lucide.createIcons(); // Re-render icon after setting innerHTML
+
+  // Toggle theme on click
+  toggleButton.addEventListener("click", () => {
+    const isLight = root.classList.toggle("light-theme");
+
+    if (isLight) {
+      toggleButton.innerHTML = '<i data-lucide="sun"></i>';
+      heroImage.src = "assets/qa-automation-bg.png";
+      localStorage.setItem("theme", "light");
+    } else {
+      toggleButton.innerHTML = '<i data-lucide="moon"></i>';
+      heroImage.src = "assets/qa-automation-bg-blue.png";
+      localStorage.setItem("theme", "dark");
+    }
+
+    // Re-render Lucide icons each time
+    lucide.createIcons();
+  });
+});
+
+

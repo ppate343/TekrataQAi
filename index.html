@@ -10,15 +10,20 @@
 </head>
 <body>
   <header class="navbar">
-    <div class="logo">Tekrata <span class="accent">QAi</span></div>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="#features">Features</a>
-      <a href="usecases.html">Use Cases</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  <div class="logo">Tekrata <span class="accent">QAi</span></div>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="#features">Features</a>
+    <a href="usecases.html">Use Cases</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+  <i data-lucide="moon"></i>
+</button>
+
+  </nav>
+</header>
+
 
   <!-- Hero -->
 <section class="hero">
@@ -36,7 +41,7 @@
     </div>
 
     <div class="hero-image">
-      <img src="assets/qa-automation-bg-blue.png" alt="QA Automation Illustration">
+      <img id="heroImage" src="assets/qa-automation-bg-blue.png" alt="QA Automation Illustration">
     </div>
   </div>
 </section>
