@@ -1,12 +1,12 @@
 :root {
-  --bg-dark: #0b0d17;
-  --bg-secondary: #121420;
-  --accent: #4f6ef7;
-  --text-light: #f4f4f4;
-  --text-muted: #aaa;
-  --card-bg: #1a1c28;
-
+  --bg-dark: #0a1014;
+  --bg-secondary: #101820;
+  --accent: #00e0b8;
+  --text-light: #f4f8f6;
+  --text-muted: #a3b4b2;
+  --card-bg: #141b22;
 }
+
 * {
   transition: background-color 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
@@ -14,11 +14,12 @@
 
 body {
   margin: 0;
-  font-family: "Poppins", sans-serif;
+  font-family: "Inter", sans-serif;
   background-color: var(--bg-dark);
   color: var(--text-light);
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
 }
+
 
 /* Navbar */
 .navbar {
@@ -62,7 +63,10 @@ body {
 .hero {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a0a14 0%, #171432 60%, #322aff 100%);
+  .hero {
+  background: linear-gradient(135deg, #0a1014 0%, #00383a 70%, #00e0b8 100%);
+}
+
   color: #fff;
   padding: 8rem 2rem;
 }
@@ -103,7 +107,7 @@ body {
 
 /* Accent text */
 .accent {
-  background: linear-gradient(to right, #6a74ff, #a38cff);
+  background: linear-gradient(to right, #00c4a2, #00e0b8);
   -webkit-background-clip: text;
   color: transparent;
 }
@@ -250,21 +254,37 @@ input, textarea {
   color: white;
 }
 
+/* Section titles */
 .section-title {
   font-size: 2.4rem;
-  background: linear-gradient(to right, #6a74ff, #b3a1ff);
+  background: linear-gradient(to right, #00c4a2, #00e0b8);
   -webkit-background-clip: text;
   color: transparent;
 }
 
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, auto);   /* 2 rows */
   gap: 2rem;
   margin-top: 3rem;
   margin-bottom: 2.5rem;
 }
 
+@media (max-width: 900px) {
+  /* Stack to 2 columns on tablets */
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+  }
+}
+
+@media (max-width: 600px) {
+  /* Stack to 1 column on mobile */
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+}
 .feature-card {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -291,7 +311,7 @@ input, textarea {
 
 .feature-card:hover .icon {
   opacity: 1;
-  color: #7a8bff;
+  color: var(--accent);
   transform: scale(1.05);
 }
 
@@ -383,43 +403,64 @@ input, textarea {
 /* Light Theme */
 :root.light-theme {
   --bg-dark: #ffffff;
-  --bg-secondary: #f6f7fb;
-  --accent: #4f6ef7;
-  --text-light: #111111;
-  --text-muted: #555555;
+  --bg-secondary: #f2f8f7;
+  --accent: #00c4a2;
+  --text-light: #0a1014;
+  --text-muted: #4a5b58;
   --card-bg: #ffffff;
 }
 
+/* Navbar */
 .light-theme .navbar a {
   color: var(--text-light);
 }
 
+/* Hero */
 .light-theme .hero {
-  background: linear-gradient(135deg, #f2f4ff 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #eafffa 0%, #ffffff 100%);
   color: var(--text-light);
 }
 
+/* Dark Sections (like pricing or sectors) */
 .light-theme .section.dark {
   background-color: var(--bg-secondary);
 }
 
+/* Inputs */
 .light-theme input,
 .light-theme textarea {
-  background: #fff;
-  border: 1px solid #ccc;
+  background: #ffffff;
+  border: 1px solid #cdd7d5;
   color: #111;
 }
 
+/* Feature Cards */
 .light-theme .feature-card {
-  background: #fff;
-  border: 1px solid #eee;
+  background: #ffffff;
+  border: 1px solid #e5f0ee;
+  transition: all 0.3s ease;
 }
 
+.light-theme .feature-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 196, 162, 0.2);
+  transform: translateY(-5px);
+}
+
+/* Accent + Section Titles */
+.light-theme .accent,
+.light-theme .section-title {
+  background: linear-gradient(to right, #00b190, #00e0b8);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Theme Toggle */
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 24px; /* similar height to nav links */
+  height: 24px;
   padding: 0;
   margin: 0;
   line-height: 1;

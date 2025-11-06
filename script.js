@@ -79,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
       localStorage.setItem("theme", "light");
     } else {
       toggleButton.innerHTML = '<i data-lucide="moon"></i>';
-      heroImage.src = "assets/qa-automation-bg-blue.png";
+      heroImage.src = "assets/qa-automation-bg-dark.png";
       localStorage.setItem("theme", "dark");
     }
 
